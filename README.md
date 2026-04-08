@@ -27,25 +27,28 @@ Monitor the performance of your shortened URLs:
 To get started with the URL Shortener Service locally, follow these steps:
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/GautamKaran/URL-Shortener-api.git
    cd url-shortener-
    ```
 2. **Install Dependencies**
+
    ```bash
    npm install
    ```
 3. **Environment Variables**
-  To run this project, you will need to add the following environment variables to your .env file
-    ```bash
-     PORT=3000
+   To run this project, you will need to add the following environment variables to your .env file
 
-     MONGODB_URI=mongodb+srv://your-username:your-password@cluster0.lxl3fsq.mongodb.net
+   ```bash
+    PORT=3000
 
-     CORS_ORIGIN=*
+    MONGODB_URI=mongodb+srv://your-username:your-password@cluster0.lxl3fsq.mongodb.net
+
+    CORS_ORIGIN=*
    ```
-
 4. **Run the Application**
+
    ```bash
    npm run dev
    ```
@@ -55,17 +58,16 @@ To get started with the URL Shortener Service locally, follow these steps:
 ---
 
 ## USE
+
 ![image](https://github.com/user-attachments/assets/b9346076-ec0a-4a8a-a660-883ee08db1ac)
 ![image](https://github.com/user-attachments/assets/2b7944bd-4f8c-4bc1-812f-9decf97d5c17)
 ![image](https://github.com/user-attachments/assets/79f5724f-8910-45d6-a022-9e6e4bfc5bac)
----
-
+-----------------------------------------------------------------------------------------
 
 ## 🛠 Skills
+
 Javascript, Node.js, Express.js, MongoDB...
 
 ## Authors
-- [@KaranKumarGuatam](https://github.com/karanGautam-dev)
 
-
-
+- [@gautamkaran](https://github.com/gautamkaran)
