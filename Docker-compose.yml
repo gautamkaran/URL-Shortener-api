@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    container_name: url-shortener-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - MONGODB_URL=mongodb://db:27017
+      - CORS_ORIGIN=*
+    restart: always
+
+  db:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+volumes:
+  mongo_data:
