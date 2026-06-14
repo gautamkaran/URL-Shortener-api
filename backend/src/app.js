@@ -9,6 +9,12 @@ app.use(
     credentials: true,
   })
 );
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "URL Shortener API is running"
+  });
+});
 
 app.use(express.json({ limit: "10kb" })); // form data
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
