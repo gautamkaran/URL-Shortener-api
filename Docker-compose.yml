@@ -2,29 +2,35 @@ services:
   backend:
     build: ./backend
     container_name: url-shortener-backend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    environment:
-      - MONGODB_URL=mongodb://db:27017
-      - CORS_ORIGIN=*
-    restart: always
     labels:
       - traefik.enable=true
       - traefik.http.routers.shorturl.rule=Host(`shorturl.${TRAEFIK_HOST}`)
       - traefik.http.routers.shorturl.entrypoints=websecure
       - traefik.http.routers.shorturl.tls.certresolver=letsencrypt
       - traefik.http.services.shorturl.loadbalancer.server.port=3000
-
-  db:
-    image: mongo:latest
-    container_name: mongo-db
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_URL=mongodb://db:27017
+      - CORS_ORIGIN=*
     restart: always
+      networks:
+      - url-shortener-network
+mongodb:
+    image: mongo:latest
+    container_name: url-shortener
+    hostname: mongodb
+    restart: unless-stopped
+
+    volumes:
+      - mongo-data:/data/db
+
+    networks:
+      - url-shortener-network
 
 volumes:
-  mongo_data:
+  mongo-data:
+
+networks:
+  url-shortener-network:
+    driver: bridge
