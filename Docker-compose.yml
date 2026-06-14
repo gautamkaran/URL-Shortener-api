@@ -10,6 +10,12 @@ services:
       - MONGODB_URL=mongodb://db:27017
       - CORS_ORIGIN=*
     restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.shorturl.rule=Host(`shorturl.${TRAEFIK_HOST}`)
+      - traefik.http.routers.shorturl.entrypoints=websecure
+      - traefik.http.routers.shorturl.tls.certresolver=letsencrypt
+      - traefik.http.services.shorturl.loadbalancer.server.port=3000
 
   db:
     image: mongo:latest
