@@ -8,7 +8,7 @@ services:
       - traefik.http.routers.shorturl.rule=Host(`shorturl.${TRAEFIK_HOST}`)
       - traefik.http.routers.shorturl.entrypoints=websecure
       - traefik.http.routers.shorturl.tls.certresolver=letsencrypt
-      - traefik.http.services.shorturl.loadbalancer.server.port=3000
+      - traefik.http.services.shorturl.loadbalancer.server.port=8000
 
     depends_on:
       - mongodb
